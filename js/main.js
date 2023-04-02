@@ -6,6 +6,19 @@ let darkmode = false;
 
 let darkModeElem = $.querySelector('.dark-mode-switch');
 
+let dayElem = $.querySelector('#day'); 
+let hourElem = $.querySelector('#hour');  
+let minuteElem = $.querySelector('#minute'); 
+let secondElem = $.querySelector('#second');  
+
+let day = 0;
+let hour = 0;
+let minute = 0;
+let second = 0;
+
+let endDate = new Date(2023,8,5).getTime();
+
+
 window.addEventListener('load', () => {
     let mode = localStorage.getItem('theme');
 
@@ -20,8 +33,6 @@ window.addEventListener('load', () => {
     }
 })
 
-
-
 darkModeElem.addEventListener('change', () => {
     darkmode = !darkmode;
     
@@ -35,3 +46,25 @@ darkModeElem.addEventListener('change', () => {
         localStorage.setItem('theme', 'light');
     }
 })
+
+
+setInterval(() => {
+    let nowData = new Date().getTime();
+    let time = endDate - nowData;
+
+    if (time >= 0){
+        day = format(Math.floor(time / (1000 * 60 * 60 *24)));
+        hour = format(Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
+        minute = format(Math.floor((time % (1000 * 60 * 60)) / (1000 * 60)));
+        second = format(Math.floor((time % (1000 * 60)) / 1000));
+
+        dayElem.innerHTML = day;
+        hourElem.innerHTML = hour;
+        minuteElem.innerHTML = minute;
+        secondElem.innerHTML = second;
+    }
+}, 1000);
+
+let format = (num) => {
+    return num < 10 ? '0' + num : num;
+}
