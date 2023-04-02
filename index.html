@@ -115,7 +115,35 @@
                     <div id="map" class="mt-4" style="height: 325px;"></div>
                 </div>
             </div>
-            <div class="col-lg-7"></div>
+            <div class="col-lg-7">
+                <form class="card h-100">
+                    <div class="row gy-3">
+                        <div class="col-md-6">
+                            <label class="form-label fw-bold" for="name">نام : </label>
+                            <input type="text" name="name" class="form-control" id="name" required="">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label fw-bold" for="name">ایمیل :</label>
+                            <input type="email" class="form-control" name="email" id="email" required="">
+                        </div>
+                    </div>
+
+                    <div class="mt-3">
+                        <label class="form-label fw-bold" for="name">موضوع :</label>
+                        <input type="text" class="form-control" name="subject" id="subject" required="">
+                    </div>
+
+                    <div class="mt-3">
+                        <label class="form-label fw-bold" for="name">متن پیام : </label>
+                        <textarea class="form-control" name="message" rows="10" required=""></textarea>
+                    </div>
+
+                    <div class="text-center">
+                      <button class="btn btn-primary mt-5" type="submit">ارسال پیام</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </section>
