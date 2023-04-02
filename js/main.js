@@ -68,3 +68,28 @@ setInterval(() => {
 let format = (num) => {
     return num < 10 ? '0' + num : num;
 }
+
+
+
+/* iTyped */
+const textElement = document.querySelector('#text');
+    ityped.init(textElement, { strings: ['یک متن تخیلی از من است...', 'شما این را می خوانید', 'زیرا من برای شما تصمیم گرفته ام.'] 
+});
+
+
+/* leaflet */
+const map = L.map('map').setView([35.67426901547201, 51.394755885994755], 13);
+
+	const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+		maxZoom: 19,
+		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	}).addTo(map);
+
+	const marker = L.marker([35.67426901547201, 51.394755885994755]).bindPopup("Hello There").addTo(map).openPopup();
+
+	const polygon = L.polygon([
+		[51.509, -0.08],
+		[51.503, -0.06],
+		[51.51, -0.047]
+	]).addTo(map);
+
